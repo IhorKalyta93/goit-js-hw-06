@@ -12,4 +12,15 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
-for (let el of images) document.querySelector('.gallery').insertAdjacentHTML('beforeEnd', `<li><img src="${el.url}" alt="${el.alt}"></li>`);
+const picListstEl = document.querySelector(".gallery");
+const pic = images
+  .map(
+    (image) =>
+      `<li><img src = "${image.url}"alt ="${image.alt}"width = 300 height = 200></li>`
+  )
+  .join(" ");
+picListstEl.insertAdjacentHTML("afterbegin", pic);
+picListstEl.style.display = "flex";
+picListstEl.style.justifyContent = "flex-inline";
+picListstEl.style.listStyle = "none";
+console.log(pic);
